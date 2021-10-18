@@ -22,16 +22,17 @@ CMyPoint GetCenterPoint2(int x, int y)
 	//return CMyPoint(x/2,y/2);
 }
 
-//CMyPoint Distance(CMyPoint mp)
-//{
-//	int tx, ty;
-//	tx = mp.GetX(); ДОПИСАТЬ икс первой точки плюс икс второй поделить на 2
-//	ty = mp.GetY();
-//	return CMyPoint(tx, ty);
-//}
+CMyPoint Distance(CMyPoint mp, CMyPoint mp2)
+{
+	int tx, ty;
+	tx = (mp.GetX() + mp2.GetX()) / 2;
+	ty = (mp.GetY() + mp2.GetY()) / 2;
+	return CMyPoint(tx, ty);
+}
 
 int main() {
 	CMyPoint mp(18, -8);
+	CMyPoint mp2(5, 4);
 	CMyPoint mpC;
 	// викликається конструктор копіювання при передачі mp в функцію
 	mpC = GetCenterPoint(mp);
@@ -43,6 +44,11 @@ int main() {
 	mpC = GetCenterPoint2(-9, 13);
 	cx = mpC.GetX(); // cx = -4
 	cy = mpC.GetY(); // cy = 6
+	cout << cx << " " << cy << endl;
+	//Координаты середины
+	mpC = Distance(mp, mp2);
+	cx = mpC.GetX();
+	cy = mpC.GetY();
 	cout << cx << " " << cy << endl;
 	system("pause");
 }
